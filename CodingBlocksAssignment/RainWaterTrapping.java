@@ -11,20 +11,36 @@ public class RainWaterTrapping {
         for(int i = 0 ; i< s;i++){
             arr[i] = sc.nextInt();
         }
-        int capacity ;
-        if(arr[0] < arr[s-1]){
-            capacity = arr[0];
-        }
-        else{
-            capacity = arr[s-1];
-        }
-        int sum = 0;
-        for(int i = 1; i < s-1 ;i++){
-            if(capacity > arr[i]){
-                sum += capacity - arr[i];
+        
+        int lPonter = arr[0];
+        int rPointer = arr[s-1];
+        int count= 0;
+        int i = 1 ; int j = s-2;
+        while(i <= j){
+            if(lPonter <= rPointer){
+                int check = lPonter-arr[i];
+                if(check > 0){
+                    count += check;
+                }
+                if(lPonter < arr[i]){
+                    lPonter = arr[i];
+                }
+                i++;
+
+            }
+            else{
+                int check = rPointer-arr[j];
+                if(check > 0){
+                    count+= check;
+                }
+                if(rPointer < arr[j]){
+                    rPointer = arr[j];
+                }
+                j--;
+
             }
         }
-        System.out.println(sum);
+        System.out.println(count);
         n--;
     }
     sc.close();

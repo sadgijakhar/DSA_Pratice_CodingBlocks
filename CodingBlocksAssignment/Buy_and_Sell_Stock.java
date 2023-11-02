@@ -1,7 +1,7 @@
 package CodingBlocksAssignment;
 
 import java.util.*;
-public class Main {
+public class Buy_and_Sell_Stock {
     public static void main (String args[]) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

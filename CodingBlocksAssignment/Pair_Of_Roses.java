@@ -63,7 +63,7 @@ public class Pair_Of_Roses {
             int sum = 0;
             int minIndex = n;
             int min = n;
-            int count= 0;
+            // int count= 0;
             int a =0;int b = 0;
             for(int i = 0 ;i < n-1 ; i++){
                 int j = i+1;
@@ -73,7 +73,7 @@ public class Pair_Of_Roses {
                     if(money == sum ){
                         minIndex = j-i;
                         
-                        count++;
+                        // count++;
                         if(min < minIndex){
                             minIndex = min;
                             a = arr[i];
