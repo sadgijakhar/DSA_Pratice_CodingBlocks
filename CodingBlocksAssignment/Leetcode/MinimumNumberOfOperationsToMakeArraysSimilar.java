@@ -57,7 +57,7 @@ public class MinimumNumberOfOperationsToMakeArraysSimilar {
     public long makeSimilar1(int[] nums, int[] target) {
         Arrays.sort(nums);
         Arrays.sort(target);
-        int len = nums.length, i, p = 0, j = 0, k = 0;
+        int len = nums.length, i, j = 0, k = 0;
         long sum1 = 0, sum2 = 0;
         List<Integer> odd1 = new ArrayList<>();
         List<Integer> even1 = new ArrayList<>();
