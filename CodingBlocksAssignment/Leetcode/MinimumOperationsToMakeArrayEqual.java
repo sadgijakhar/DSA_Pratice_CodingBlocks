@@ -42,4 +42,35 @@ public class MinimumOperationsToMakeArrayEqual {
     
     System.out.println(count);
    }
+   //optimise code then above
+   public int minOperations(int n) {
+        int ans = 0;
+        for(int i = 0 ; i < n/2; i++){
+            ans += n - ((2 * i) + 1);
+        }
+        return ans;
+    }
+
+   //optimise code then above
+   public int minOperations1(int n) {
+        int num = n / 2;
+        if (n % 2 == 0) {
+            return (num * (2 * 1 + (num - 1) * 2)) / 2;
+        } else {
+            return (num * (2 * 2 + (num - 1) * 2)) / 2;
+        }
+    }
+
+    //optimise code same as above
+    public int minOperations2(int n) {
+        int result = 0;
+        
+        if (n % 2 == 0) {
+            result = (n / 2) * (n / 2);
+        } else {
+            result = ((n - 1) / 2) * ((n + 1) / 2);
+        }
+        
+        return result;
+    }
 }
