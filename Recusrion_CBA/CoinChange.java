@@ -1,7 +1,7 @@
 package Recusrion_CBA;
 
 import java.util.Scanner;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 
 public class CoinChange {
@@ -15,14 +15,14 @@ public class CoinChange {
             arr[i] = sc.nextInt();
         }
         // Arrays.sort(arr); 
-        ArrayList<Integer> arrq = new ArrayList<>();
+        // ArrayList<Integer> arrq = new ArrayList<>();
         int count[] ={0};
-        int t = recurr(arr, 0, n, 0, arrq, m,count);
+        int t = recurr(arr, 0, n, 0, m,count);
         System.out.println(t);
         sc.close();
        } 
     
-       static int recurr(int arr[] , int sum , int n, int i ,ArrayList<Integer> arrq,int m,int count[]){
+       static int recurr(int arr[] , int sum , int n, int i ,int m,int count[]){
         if(i >= m || sum > n){
             return count[0];
         }
@@ -33,13 +33,13 @@ public class CoinChange {
         }
     
         // System.out.println(arrq);
-        arrq.add(arr[i]);
+        // arrq.add(arr[i]);
     
-        recurr(arr, sum+arr[i] , n, i , arrq, m,count);
+        recurr(arr, sum+arr[i] , n, i , m,count);
     
-        arrq.remove(arrq.size()-1);
+        // arrq.remove(arrq.size()-1);
     
-        recurr(arr, sum, n, i+1,arrq,m,count);
+        recurr(arr, sum, n, i+1,m,count);
         
         return count[0];
        }
