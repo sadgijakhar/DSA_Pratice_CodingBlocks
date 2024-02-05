@@ -1,7 +1,7 @@
 package Recusrion_CBA;
 
 import java.util.Scanner;
-import java.util.Arrays;
+// import java.util.Arrays;
 
 public class Count_ways_to_Nth_Stair_OPT {
     public static void main(String[] args) {
