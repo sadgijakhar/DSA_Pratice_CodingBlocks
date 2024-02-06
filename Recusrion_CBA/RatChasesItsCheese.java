@@ -1,6 +1,6 @@
 package Recusrion_CBA;
 
-import java.util.Arrays;
+// import java.util.Arrays;
 import java.util.Scanner;
 
 public class RatChasesItsCheese {
