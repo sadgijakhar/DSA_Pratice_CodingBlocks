@@ -6,13 +6,13 @@ public class ReversePairs1 {
     public static void main(String[] args) {
         int arr[] = {1,3,2,3,1};
         // int arr[] = {2,4,3,5,1};
-        System.out.println(reversePairs(arr)-1);
+        System.out.println(reversePairs(arr));
     } 
 
     static int reversePairs(int[] nums) {
         // System.out.println(nums.length);
         int t = divide(nums, 0, nums.length-1);
-        System.out.println(Arrays.toString(nums));
+        // System.out.println(Arrays.toString(nums));
         return t;
     }
 
@@ -20,9 +20,15 @@ public class ReversePairs1 {
         int count = 0;
         if(low < high){
             int mid = (low+high)/2;
-            count += divide(arr,low,mid);
-            count += divide(arr,mid+1,high);
-            count += merge(arr, low, mid, high,count);
+            count = divide(arr,low,mid) + divide(arr,mid+1,high);
+            for (int i = low, j = mid+1; i <= mid && j <= high;){
+                if (arr[i] > (long) arr[j] * 2){
+                    count += mid - i + 1;
+                    j++;
+                }
+                else i++;
+            }
+            merge(arr, low, mid, high,count);
         }
         return count;
     }
@@ -37,21 +43,7 @@ public class ReversePairs1 {
         }
         for(int i = 0 ; i < n2 ; i++){
             right[i] = nums[i+mid+1];
-        }
-        // for(int i = 0 ; i < left.length ; i++){
-        //     for(int j = 0 ; j < right.length ; j++){
-        //         if(left[i] > 2*right[j]){
-        //             count += 1;
-        //         }
-        //     }
-        // }
-
-        for(int i = low, j = mid+1; i<=mid; i++){
-            while(j<=high && nums[i]/2.0 > nums[j]) j++; 
-            count += j-(mid+1); 
-        }
-        
-
+        }      
         int i = 0 ;
         int j = 0 ;
         int k = low;
@@ -62,13 +54,8 @@ public class ReversePairs1 {
                 i++;
             }
             else{
-                // if(left[i] > 2 * right[j]){
-                //     count += (n1 - i); 
-                // }
                 nums[k] = right[j];
-                j++;
-                
-                
+                j++;  
             }
             k++;
         }
@@ -82,8 +69,6 @@ public class ReversePairs1 {
             j++;
             k++;
         }
-        // System.out.println(Arrays.toString(nums));
-        // System.out.println(count);
         return count;
     }
 }
