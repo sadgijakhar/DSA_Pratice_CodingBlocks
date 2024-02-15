@@ -1,6 +1,5 @@
 package Leetcode;
 
-import java.util.Arrays;
 
 public class ReversePairs1 {
     public static void main(String[] args) {
